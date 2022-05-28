@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Clases</title>
+    <style>
+      a:link {
+        color: hotpink;
+      }
+      a:visited {
+        color: tomato;
+      }
+      a:hover {
+        background-color: palegoldenrod;
+      }
+      p:not(.maravillas) {
+        color: lightsalmon;
+      }
+      .container div:nth-child(1) {
+        color: lightseagreen;
+      }
+      .red-input:focus {
+        background: yellow;
+        color: red;
+      }
+
+      .blue-input:focus {
+        background: yellow;
+        color: blue;
+      }
+      .active a:link {
+        color: blue;
+      } /* Unvisited links */
+      .active a:visited {
+        color: purple;
+      } /* Visited links */
+      .active a:hover {
+        background: yellow;
+      } /* Hovered links */
+      .active a:active {
+        color: red;
+      } /* Active links */
+      .active p:active {
+        background: #eee;
+      } /* Active paragraphs */
+      /* Disable*/
+      input[type="text"]:disabled {
+        background: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/">Alicia</a>
+    <p>En el</p>
+    <p class="maravillas">país</p>
+    <div class="container">
+      <div>Alicia</div>
+      <div>Alicia</div>
+      <div>Alicia</div>
+    </div>
+    <div><input class="red-input" value="I'll be red when focused." /></div>
+    <div><input class="blue-input" value="I'll be blue when focused." /></div>
+    <div class="active">
+      <p>
+        This paragraph contains a link:
+        <a href="#">This link will turn red while you click on it.</a>
+        The paragraph will get a gray background while you click on it or the
+        link.
+      </p>
+    </div>
+    <form action="#">
+      <fieldset id="shipping">
+        <legend>Shipping address</legend>
+        <input type="text" placeholder="Name" />
+        <input type="text" placeholder="Address" />
+        <input type="text" placeholder="Zip Code" />
+      </fieldset>
+      <br />
+      <fieldset id="billing">
+        <legend>Billing address</legend>
+        <label for="billing-checkbox">Same as shipping address:</label>
+        <input type="checkbox" id="billing-checkbox" checked />
+        <br />
+        <input type="text" placeholder="Name" disabled />
+        <input type="text" placeholder="Address" disabled />
+        <input type="text" placeholder="Zip Code" disabled />
+      </fieldset>
+    </form>
+    <script>
+      // Wait for the page to finish loading
+      document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          // Attach `change` event listener to checkbox
+          document.getElementById("billing-checkbox").onchange = toggleBilling;
+        },
+        false
+      );
+
+      function toggleBilling() {
+        // Select the billing text fields
+        var billingItems = document.querySelectorAll(
+          '#billing input[type="text"]'
+        );
+
+        // Toggle the billing text fields
+        for (var i = 0; i < billingItems.length; i++) {
+          billingItems[i].disabled = !billingItems[i].disabled;
+        }
+      }
+    </script>
+  </body>
+</html>
