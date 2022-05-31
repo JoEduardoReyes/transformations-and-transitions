@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transform rotate</title>
+    <title>Transform Origin</title>
     <style>
       .circle {
         width: 100px;
@@ -15,11 +15,12 @@
           rgba(37, 145, 251, 0.98) 0.1%,
           rgba(0, 7, 128, 1) 99.8%
         );
-        transition-duration: 1s;
+        transition-duration: 0.6s;
+        transform-origin: right top;
       }
       .circle:hover {
         transform: rotate(45deg);
-        transition-duration: 1s;
+        transition-duration: 0.5s;
       }
     </style>
   </head>
